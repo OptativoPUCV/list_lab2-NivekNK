@@ -151,15 +151,14 @@ void * popCurrent(List * list)
     if (list->current != list->head)
     {
         list->current->next->prev = list->current->prev;
+        list->current = list->current->next;
     }
     else
     {
         list->current->next->prev = NULL;
-        list->head = list->current->next;
-        list->head->next = list->current->next->next;
+        list->current = list->current->next;
+        list->head = list->current;
     }
-    
-    list->current = list->current->next;
 
     return data;
 }
