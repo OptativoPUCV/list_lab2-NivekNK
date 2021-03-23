@@ -32,9 +32,6 @@ Node * createNode(const void * data)
 List * createList() 
 {
     List * new = (List *)malloc(sizeof(List));
-    new->head = NULL;
-    new->tail = NULL;
-    new->current = NULL;
 
     return new;
 }
