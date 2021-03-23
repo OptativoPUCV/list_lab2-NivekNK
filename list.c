@@ -90,7 +90,20 @@ void * prevList(List * list)
     return NULL;
 }
 
-void pushFront(List * list, const void * data) {
+void pushFront(List * list, const void * data) 
+{
+    Node *node = createNode(data);
+
+    if (list->head == NULL)
+    {
+        list->head = node;
+    }
+    else
+    {
+        node->next = list->head;
+        list->head->prev = node;
+        list->head = node;
+    }
 }
 
 void pushBack(List * list, const void * data) {
