@@ -146,6 +146,7 @@ void * popBack(List * list)
 
 void * popCurrent(List * list) 
 {
+    Node *aux = (Node*)malloc(sizeof(Node));
     void *data = (void*)list->current->data;
 
     if (list->current != list->head)
@@ -155,8 +156,9 @@ void * popCurrent(List * list)
     }
     else
     {
-        list->head = list->head->next;
-        list->head->prev = NULL;
+        aux = list->head->next->next;
+        list->current = list->head->next;
+        list->head->next = aux;
     }
 
     return data;
