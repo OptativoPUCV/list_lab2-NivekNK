@@ -127,6 +127,7 @@ void pushCurrent(List * list, const void * data)
     }
     else
     {
+        list->tail->prev = list->current;
         list->tail = node;
     }
 }
