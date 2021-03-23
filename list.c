@@ -146,7 +146,7 @@ void * popBack(List * list)
 
 void * popCurrent(List * list) 
 {
-    void *data = (void*)list->current->data;
+    //void *data = (void*)list->current->data;
 
     if (list->current != list->head)
     {
@@ -159,7 +159,7 @@ void * popCurrent(List * list)
     
     list->current = list->current->next;
 
-    return data;
+    return (void*)list->current->data;
 }
 
 void cleanList(List * list) 
