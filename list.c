@@ -147,16 +147,18 @@ void * popBack(List * list)
 void * popCurrent(List * list) 
 {
     Node *aux = (Node*)malloc(sizeof(Node));
-    void *data = (void*)list->current->data;
+    aux = list->current;
 
-    aux = list->current->next->next;
-    list->current = list->current->next;
-    list->current->next = aux;
+    list->current = aux->next;
+    list->current->next = aux->next->next;
 
-    if (list->current->prev == NULL)
+    if (list->current == list->head)
+    {
+        list->current->prev = NULL;
         list->head = list->current;
+    }
 
-    return data;
+    return (void*)aux->data;
 }
 
 void cleanList(List * list) 
