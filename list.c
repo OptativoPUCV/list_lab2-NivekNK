@@ -32,17 +32,32 @@ Node * createNode(const void * data)
 List * createList() 
 {
     List * new = (List *)malloc(sizeof(List));
+    new->head = NULL;
+    new->tail = NULL;
+    new->current = NULL;
     return new;
 }
 
-void * firstList(List * list) {
-    list->current = list->head;
-    return list->head;
+void * firstList(List * list) 
+{
+    if (list->head && list->head->data)
+    {
+        list->current = list->head;
+        return (void*)list->current->data;
+    }
+
+    return NULL;
 }
 
-void * nextList(List * list) {
-    list->current = list->current->next;
-    return list->current;
+void * nextList(List * list) 
+{
+    if (list->current->next && list->current->next->data)
+    {
+        list->current = list->current->next;
+        return (void*)list->current->data;
+    }
+
+    return NULL;
 }
 
 void * lastList(List * list) {
