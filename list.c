@@ -26,6 +26,7 @@ Node * createNode(const void * data)
     new->data = data;
     new->prev = NULL;
     new->next = NULL;
+
     return new;
 }
 
@@ -35,6 +36,7 @@ List * createList()
     new->head = NULL;
     new->tail = NULL;
     new->current = NULL;
+
     return new;
 }
 
@@ -51,10 +53,13 @@ void * firstList(List * list)
 
 void * nextList(List * list) 
 {
-    if (list->current && list->current->next && list->current->next->data)
-    {
-        list->current = list->current->next;
-        return (void*)list->current->data;
+    if (list->current) 
+    { 
+      if (list->current->next && list->current->next->data)
+      {
+          list->current = list->current->next;
+          return (void*)list->current->data;
+      }
     }
 
     return NULL;
@@ -71,7 +76,17 @@ void * lastList(List * list)
     return NULL;
 }
 
-void * prevList(List * list) {
+void * prevList(List * list) 
+{
+    if (list->current) 
+    { 
+      if (list->current->prev && list->current->prev->data)
+      {
+          list->current = list->current->prev;
+          return (void*)list->current->data;
+      }
+    }
+
     return NULL;
 }
 
