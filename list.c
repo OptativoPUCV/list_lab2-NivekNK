@@ -148,16 +148,16 @@ void * popCurrent(List * list)
 {
     Node *aux = createNode(list->current->next->data);
 
+    aux->next = list->current->next->next;
     if (list->current == list->head)
     {
         aux->prev = NULL;
+        list->head = aux;
     }
     else
     {
         aux->prev = list->current->prev;
     }
-
-    aux->next = list->current->next->next;
     list->current = aux;
 
     return (void*)aux->data;
