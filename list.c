@@ -154,6 +154,7 @@ void * popCurrent(List * list)
         aux = aux->next;
         if (aux->next == list->current)
         {
+            printf("Find");
             break;
         }
     }
