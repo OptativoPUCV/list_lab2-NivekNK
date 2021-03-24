@@ -149,7 +149,7 @@ void * popCurrent(List * list)
     void *data = (void*)list->current->data;
     Node *aux = (Node*)malloc(sizeof(Node));
 
-    if (list->current && (list->current == list->head))
+    if (list->current == list->head)
     {
         aux = list->head;
         list->head = aux->next;
