@@ -163,7 +163,7 @@ void * popCurrent(List * list)
     }
     list->current = aux;
 
-    return (void*)aux->next->data;
+    return (void*)list->head->next->next;
 }
 
 void cleanList(List * list) 
