@@ -147,13 +147,14 @@ void * popBack(List * list)
 void * popCurrent(List * list) 
 {
     void *data = (void*)list->current->data;
-    Node *aux = createNode(list->current->next->data);
+    Node *aux = (Node*)malloc(sizeof(Node));
 
     if (list->current == list->head)
     {
         list->current = list->head->next;
-        aux = list->head->next->next;
-        list->head->next = aux;
+        list->current->prev = list->head->prev;
+        list->current->next = list->head->next->next;
+        list->head = list->current;
     }
     else
     {
