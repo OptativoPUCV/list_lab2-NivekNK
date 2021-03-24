@@ -164,7 +164,7 @@ void * popCurrent(List * list)
         list->current = aux;
     }
     //list->current = aux;
-    if (list->head->next != aux) printf("es verdad");
+    if (list->head->next == aux) printf("es verdad");
     //return (void*)list->current->prev->data;
     return data;
 }
