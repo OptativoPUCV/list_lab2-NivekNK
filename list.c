@@ -149,8 +149,12 @@ void * popCurrent(List * list)
     void *data = (void*)list->current->data;
     Node *aux = list->head;
 
+    if (aux == NULL) printf("hola");
+
     while(aux->next != list->current)
+    {
         aux = aux->next;
+    }
 
     aux->next = list->current->next;
     //free(list->current);
