@@ -147,7 +147,7 @@ void * popBack(List * list)
 void * popCurrent(List * list) 
 {
     void *data = (void*)list->current->data;
-    Node *aux;
+    Node *aux = (Node*)malloc(sizeof(Node));
     aux = list->head;
 
     while(aux->next != list->current)
