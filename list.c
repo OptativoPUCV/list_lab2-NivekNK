@@ -160,7 +160,7 @@ void * popCurrent(List * list)
         aux->prev = list->current->prev;
         list->current = aux;
     }
-    list->current = aux;
+    //list->current = aux;
 
     return data;
 }
