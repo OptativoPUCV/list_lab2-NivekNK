@@ -150,14 +150,7 @@ void * popCurrent(List * list)
     Node *aux = list->head;
 
     while(aux->next != list->current)
-    {
         aux = aux->next;
-        if (aux->next == list->current)
-        {
-            printf("Find");
-            break;
-        }
-    }
 
     aux->next = list->current->next;
     //free(list->current);
