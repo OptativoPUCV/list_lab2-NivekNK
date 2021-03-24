@@ -162,7 +162,7 @@ void * popCurrent(List * list)
         list->current = aux;
     }
     list->current = aux;
-    free(aux);
+    //free(aux);
 
     return data;
 }
