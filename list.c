@@ -147,15 +147,17 @@ void * popBack(List * list)
 void * popCurrent(List * list) 
 {
     void *data = (void*)list->current->data;
-    Node *aux = (Node*)malloc(sizeof(Node));
-    aux = list->head;
+    //no es necesario reservar memoria a 
+    //variables auxiliares
+    Node *aux = list->head;
 
-    while(aux->next != list->current)
-    {
-        aux = aux->next;
-    }
-
+    //no es necesario recorrer para llegar al anterior
+    //basta con aux = list->current->prev
+    aux = list->current->prev;
     aux->next = list->current->next;
+    list->current->next->prev = aux;
+    //falta enlazar el prev del siguiente con el aux
+    
     free(list->current);
     list->current = list->head;
     
