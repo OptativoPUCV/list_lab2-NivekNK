@@ -55,7 +55,16 @@ void * nextList(List * list)
 {
     if (list->current && list->current->next) 
     { 
-        list->current = list->current->next;
+        if (list->current == list->head)
+        {
+            list->current = list->head->next;
+            return (void*)list->current->data;
+        }
+        else
+        {
+            list->current = list->current->next;
+        }
+        
         return (void*)list->current->data;
     }
 
