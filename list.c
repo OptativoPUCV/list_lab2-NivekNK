@@ -130,7 +130,7 @@ void pushCurrent(List * list, const void * data)
         node->next = list->current->next;
         list->current->next->prev = node;
     }
-    list->current->next = node;
+    //list->current->next = node;
     list->current = node;
 }
 
