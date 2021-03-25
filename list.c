@@ -149,7 +149,7 @@ void * popCurrent(List * list)
     void *data = (void*)list->current->data;
     //no es necesario reservar memoria a 
     //variables auxiliares
-    Node *aux = list->head;
+    Node *aux;
 
     //no es necesario recorrer para llegar al anterior
     //basta con aux = list->current->prev
