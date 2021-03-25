@@ -45,7 +45,7 @@ void * firstList(List * list)
     if (list->head && list->head->data)
     {
         list->current = list->head;
-        return (void*)list->current->data;
+        return (void*)list->head->data;
     }
 
     return NULL;
@@ -67,7 +67,7 @@ void * lastList(List * list)
     if (list->tail && list->tail->data)
     {
         list->current = list->tail;
-        return (void*)list->current->data;
+        return (void*)list->tail->data;
     }
 
     return NULL;
@@ -103,7 +103,7 @@ void pushFront(List * list, const void * data)
         list->head = node;
     }
 
-    list->current = list->head;
+    list->current = node;
 }
 
 void pushBack(List * list, const void * data) 
