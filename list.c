@@ -153,9 +153,17 @@ void * popCurrent(List * list)
 
     //no es necesario recorrer para llegar al anterior
     //basta con aux = list->current->prev
-    aux = list->current->prev;
-    aux->next = list->current->next;
-    list->current->next->prev = aux;
+    if (list->current != list->head)
+    {
+        aux = list->current->prev;
+        aux->next = list->current->next;
+        list->current->next->prev = aux;
+    }
+    else
+    {
+        list->current->next->prev = NULL;
+        list->head = list->current->next;
+    }
     //falta enlazar el prev del siguiente con el aux
     
     free(list->current);
