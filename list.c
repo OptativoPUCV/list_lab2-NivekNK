@@ -99,6 +99,10 @@ void pushFront(List * list, const void * data)
     else
     {
         node->next = list->head;
+
+        if (!list->head->next)
+            list->tail = list->head;
+
         list->head->prev = node;
         list->head = node;
     }
