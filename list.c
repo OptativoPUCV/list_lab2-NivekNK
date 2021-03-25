@@ -123,7 +123,6 @@ void pushCurrent(List * list, const void * data)
 
     if (list->current == list->tail)
     {
-        list->tail->prev = list->current;
         list->tail = node;
     }
     else
