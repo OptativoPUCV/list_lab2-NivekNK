@@ -119,16 +119,13 @@ void pushCurrent(List * list, const void * data)
     if (list->current == list->tail)
     {
         list->tail = node;
-        list->current->next = list->tail;
-        list->current = list->tail;
     }
     else
     {
         node->next = list->current->next;
         list->current->next->prev = node;
-        list->current->next = node;
-        list->current = node;
     }
+    list->current->next = node;
 }
 
 void * popFront(List * list) 
