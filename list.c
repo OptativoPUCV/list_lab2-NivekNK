@@ -102,6 +102,8 @@ void pushFront(List * list, const void * data)
         list->head->prev = node;
         list->head = node;
     }
+
+    list->current = node;
 }
 
 void pushBack(List * list, const void * data) 
