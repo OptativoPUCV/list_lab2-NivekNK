@@ -104,6 +104,7 @@ void pushFront(List * list, const void * data)
     }
 
     list->current = node;
+    free(node);
 }
 
 void pushBack(List * list, const void * data) 
@@ -128,6 +129,7 @@ void pushCurrent(List * list, const void * data)
     }
     list->current->next = node;
     list->current = node;
+    free(node);
 }
 
 void * popFront(List * list) 
