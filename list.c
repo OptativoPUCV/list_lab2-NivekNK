@@ -117,13 +117,7 @@ void pushCurrent(List * list, const void * data)
     Node *node = createNode(data);
     node->prev = list->current;
 
-    if (list->current == list->head)
-    {
-        free(node);
-        pushFront(list, data);
-        return;
-    }
-    else if (list->current == list->tail)
+    if (list->current == list->tail)
     {
         list->tail = node;
     }
